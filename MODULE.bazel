@@ -4,9 +4,10 @@ module(name = "hello")
 bazel_dep(name = "rules_cc", version = "0.1.0")
 
 bazel_dep(name = "cortecs-cc-toolchain")
-local_path_override(
+git_override(
     module_name = "cortecs-cc-toolchain",
-    path = "../cortecs-cc-toolchain",
+    remote = "https://github.com/cortecs-lang/cortecs-cc-toolchain.git",
+    commit = "ec618a65fdbe7d4cd5f5559bb7a94c15dd298117",
 )
 
 register_toolchains(
