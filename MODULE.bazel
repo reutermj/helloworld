@@ -1,0 +1,15 @@
+""
+module(name = "hello")
+
+bazel_dep(name = "rules_cc", version = "0.1.0")
+
+bazel_dep(name = "cortecs-cc-toolchain")
+local_path_override(
+    module_name = "cortecs-cc-toolchain",
+    path = "../cortecs-cc-toolchain",
+)
+
+register_toolchains(
+    "@cortecs-cc-toolchain//:host_cc_toolchain",
+    dev_dependency = True,
+)
